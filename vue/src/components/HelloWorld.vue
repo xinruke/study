@@ -41,14 +41,18 @@
         var userPwd = this.userPwd;
 
         testObject.find().then(function (object) {
-          object.forEach(function (list) {
-            let pwd = list.get("password");
-            if (pwd == userPwd) {
-              alert('登录成功!');
-            } else {
-              alert('登录失败，用户名或密码不正确');
-            }
-          })
+          if (object.length > 0) {
+            alert('登录失败，用户名或密码不正确');
+          } else {
+            object.forEach(function (list) {
+              let pwd = list.get("password");
+              if (pwd == userPwd) {
+                alert('登录成功!');
+              } else {
+                alert('登录失败，用户名或密码不正确');
+              }
+            });
+          }
         }, function (error) {
           alert('登录失败!' + object);
         });
@@ -63,8 +67,7 @@
         }).catch((error) => {
           alert("请求异常" + error);
         });*/
-      }
-      ,
+      },
       doRegister: function () {
         var userName = this.userName;
         var userPwd = this.userPwd;
@@ -75,7 +78,7 @@
         testObjectQuery.find().then(function (object) {
           if (object.length > 0) {
             alert('注册失败，用户已存在');
-          }else{
+          } else {
             var TestObject = LeanCloud.Object.extend('TestObject');
             var testObject = new TestObject();
             testObject.set("name", userName);
