@@ -41,7 +41,7 @@
         var userPwd = this.userPwd;
 
         testObject.find().then(function (object) {
-          if (object.length > 0) {
+          if (object.length <= 0) {
             alert('登录失败，用户名或密码不正确');
           } else {
             object.forEach(function (list) {
