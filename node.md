@@ -12,3 +12,9 @@ npm run build
 
 npm i && npm i element-ui
 npm install axios
+
+# LeanCloud
+##存储服务（包括推送）
+npm install leancloud-storage --save
+##即时通讯服务
+npm install leancloud-realtime --save

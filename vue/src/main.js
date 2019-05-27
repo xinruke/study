@@ -11,6 +11,15 @@ Vue.use(ElementUI, {size : 'small'})
 import axios from 'axios'
 Vue.prototype.axios = axios
 
+// 存储服务
+var LeanCloud = require('leancloud-storage');
+var { Query, User } = LeanCloud;
+// 即时通讯服务
+var { Realtime, TextMessage } = require('leancloud-realtime');
+//存储服务的 LiveQuery 功能
+var LeanCloud = require('leancloud-storage/live-query');
+
+
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
