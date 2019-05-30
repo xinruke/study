@@ -17,7 +17,7 @@ eureka:
     prefer-ip-address: true
 
 logging:
-  file: logs/study_springcloud_eureka.log
+  file: logs/study_eureka.log
   file.max-history: 10
   file.max-size: 100MB
   level:
