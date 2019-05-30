@@ -9,9 +9,9 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.xinruke</groupId>
-    <artifactId>user</artifactId>
+    <artifactId>finance</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>user</name>
+    <name>finance</name>
     <description>Demo project for Spring Boot</description>
 
     <properties>
@@ -27,14 +27,6 @@
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-openfeign</artifactId>
         </dependency>
 
         <dependency>
