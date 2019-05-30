@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("user/login")
 @CrossOrigin
 public class UserLoginController {
-    Logger logger = LoggerFactory.getLogger(UserLoginController.class);
+    Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @GetMapping("loginByParam")
     public String login(@RequestParam String name, @RequestParam String password) {

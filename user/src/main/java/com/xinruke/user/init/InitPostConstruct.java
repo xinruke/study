@@ -10,7 +10,7 @@ import javax.annotation.PostConstruct;
 
 @Component
 public class InitPostConstruct {
-    Logger logger = LoggerFactory.getLogger(InitPostConstruct.class);
+    Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @Autowired
     UserLoginService userLoginService;

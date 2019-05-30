@@ -1,0 +1,17 @@
+server:
+  port: 8765
+
+spring:
+  application:
+    name: zuul-service
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://admin:admin@localhost:8761/eureka/
+zuul:
+  routes:
+    user:
+      path: /userZuul/**
+      serviceId: user-service
+  ignored-services: '*' #设置不自动创建该服务的默认路由。禁用所有：'*'

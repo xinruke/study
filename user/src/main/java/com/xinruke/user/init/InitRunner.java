@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
 @Component
 @Order(1) //控制类的加载顺序
 public class InitRunner implements CommandLineRunner {
-    Logger logger = LoggerFactory.getLogger(InitRunner.class);
+    Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @Override
     public void run(String... args) throws Exception {
