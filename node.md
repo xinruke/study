@@ -18,3 +18,27 @@ npm install axios
 npm install leancloud-storage --save
 ##即时通讯服务
 npm install leancloud-realtime --save
+
+8760 config
+8761 eureka
+8762 user
+8763 finance
+8764 pay
+8765 zuul
+8766 admin
+
+#访问地址
+##http://localhost:8761/    Eureka
+##http://localhost:15672/   RabbitMQ
+##http://localhost:8766/    SpringBootAdmin
+##http://localhost:8767/    Zipkin
+
+Eureka
+Feign
+Ribbon
+Hystrix
+Zuul
+Config
+Config Bus
+Sleuth
+Zipkin

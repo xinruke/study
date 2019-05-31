@@ -34,7 +34,7 @@ public class MyFallbackProvider implements FallbackProvider {
             message = "service exception";
         }
 
-        return;
+        return fallbackResponse(message);
     }
 
     private ClientHttpResponse fallbackResponse(String message) {
