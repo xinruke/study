@@ -13,3 +13,8 @@ eureka:
 feign:
   hystrix:
     enabled: true
+
+xinruke:
+  commodity:
+    enabled: true
+    config: a,b,c,1,2,3
