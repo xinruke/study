@@ -1,11 +1,13 @@
 server:
-  port: 8763
+  port: 16103
 
 spring:
   application:
     name: finance-service
+  profiles:
+    active: dev
 
 eureka:
   client:
     service-url:
-      defaultZone: http://admin:admin@localhost:8761/eureka/
+      defaultZone: http://admin:admin@localhost:16001/eureka/

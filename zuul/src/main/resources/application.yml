@@ -1,17 +1,19 @@
 server:
-  port: 8765
+  port: 16000
 
 spring:
   application:
     name: zuul-service
+  profiles:
+    active: dev
 
 eureka:
   client:
     service-url:
-      defaultZone: http://admin:admin@localhost:8761/eureka/
+      defaultZone: http://admin:admin@localhost:16001/eureka/
 zuul:
   routes:
     user:
       path: /userZuul/**
       serviceId: user-service
-  ignored-services: '*' #设置不自动创建该服务的默认路由。禁用所有：'*'
+  ignored-services: '*' #璁剧疆涓嶈嚜鍔ㄥ垱寤鸿鏈嶅姟鐨勯粯璁よ矾鐢便�傜鐢ㄦ墍鏈夛細'*'

@@ -19,16 +19,16 @@ npm install leancloud-storage --save
 ##即时通讯服务
 npm install leancloud-realtime --save
 
-8760 config
-8761 eureka
-8762 user
-8763 finance
-8764 pay
-8765 zuul
-8766 admin
+16001 eureka
+16002 config
+16101 sso
+16102 user
+16103 finance
+16000 zuul
+
 
 #访问地址
-##http://localhost:8761/    Eureka
+##http://localhost:16001/    Eureka
 ##http://localhost:15672/   RabbitMQ
 ##http://localhost:8766/    SpringBootAdmin
 ##http://localhost:8767/    Zipkin
@@ -42,3 +42,6 @@ Config
 Config Bus
 Sleuth
 Zipkin
+
+端口规划：
+16+服务类型+序号，例如：16+0+01。0：系统服务，1：基础业务，2：交易业务
