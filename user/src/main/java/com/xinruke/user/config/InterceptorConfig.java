@@ -6,7 +6,7 @@ import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
 
-@Configuration
+//@Configuration //开启拦截器，会造成controller中的返回中文乱码
 public class InterceptorConfig extends WebMvcConfigurationSupport {
 
     @Override
