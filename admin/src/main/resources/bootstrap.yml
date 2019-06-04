@@ -1,0 +1,22 @@
+server:
+  port: 16003
+
+spring:
+  application:
+    name: admin-service
+  profiles:
+    active: dev
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://admin:admin@localhost:16001/eureka/
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: ALWAYS
