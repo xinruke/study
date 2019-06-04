@@ -30,7 +30,7 @@ npm install leancloud-realtime --save
 #访问地址
 ##http://localhost:16001/    Eureka
 ##http://localhost:15672/   RabbitMQ
-##http://localhost:8766/    SpringBootAdmin
+##http://localhost:16003/    SpringBootAdmin
 ##http://localhost:8767/    Zipkin
 
 Eureka
