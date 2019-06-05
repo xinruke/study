@@ -6,6 +6,11 @@ spring:
     name: sso-service
   profiles:
     active: dev
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/mysql?useUnicode=true&characterEncoding=utf8&autoReconnect=true&useSSL=false
+    username: root
+    password: 111111
 
 eureka:
   client:
