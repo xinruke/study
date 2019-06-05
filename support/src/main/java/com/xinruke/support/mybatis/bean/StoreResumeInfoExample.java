@@ -1,6 +1,7 @@
 package com.xinruke.support.mybatis.bean;
 
-import com.miaoyouche.cloud.common.dto.Page;
+import com.xinruke.support.mybatis.generator.Page;
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -27,7 +28,6 @@ public class StoreResumeInfoExample {
     protected Page page;
 
     /**
-     *
      * @mbggenerated 2019-06-05
      */
     public StoreResumeInfoExample() {
@@ -35,7 +35,6 @@ public class StoreResumeInfoExample {
     }
 
     /**
-     *
      * @mbggenerated 2019-06-05
      */
     public void setOrderByClause(String orderByClause) {
@@ -43,7 +42,6 @@ public class StoreResumeInfoExample {
     }
 
     /**
-     *
      * @mbggenerated 2019-06-05
      */
     public String getOrderByClause() {
@@ -51,7 +49,6 @@ public class StoreResumeInfoExample {
     }
 
     /**
-     *
      * @mbggenerated 2019-06-05
      */
     public void setDistinct(boolean distinct) {
@@ -59,7 +56,6 @@ public class StoreResumeInfoExample {
     }
 
     /**
-     *
      * @mbggenerated 2019-06-05
      */
     public boolean isDistinct() {
@@ -67,7 +63,6 @@ public class StoreResumeInfoExample {
     }
 
     /**
-     *
      * @mbggenerated 2019-06-05
      */
     public List<Criteria> getOredCriteria() {
@@ -75,7 +70,6 @@ public class StoreResumeInfoExample {
     }
 
     /**
-     *
      * @mbggenerated 2019-06-05
      */
     public void or(Criteria criteria) {
@@ -83,7 +77,6 @@ public class StoreResumeInfoExample {
     }
 
     /**
-     *
      * @mbggenerated 2019-06-05
      */
     public Criteria or() {
@@ -93,7 +86,6 @@ public class StoreResumeInfoExample {
     }
 
     /**
-     *
      * @mbggenerated 2019-06-05
      */
     public Criteria createCriteria() {
@@ -105,7 +97,6 @@ public class StoreResumeInfoExample {
     }
 
     /**
-     *
      * @mbggenerated 2019-06-05
      */
     protected Criteria createCriteriaInternal() {
@@ -114,7 +105,6 @@ public class StoreResumeInfoExample {
     }
 
     /**
-     *
      * @mbggenerated 2019-06-05
      */
     public void clear() {
@@ -124,15 +114,13 @@ public class StoreResumeInfoExample {
     }
 
     /**
-     *
      * @mbggenerated 2019-06-05
      */
     public void setPage(Page page) {
-        this.page=page;
+        this.page = page;
     }
 
     /**
-     *
      * @mbggenerated 2019-06-05
      */
     public Page getPage() {

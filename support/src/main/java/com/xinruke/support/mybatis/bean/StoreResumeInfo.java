@@ -1,5 +1,7 @@
 package com.xinruke.support.mybatis.bean;
 
+import io.swagger.annotations.ApiModelProperty;
+
 import java.io.Serializable;
 import java.util.Date;
 
