@@ -1,0 +1,337 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.xinruke.support.mybatis.mapper.StoreResumeInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.xinruke.support.mybatis.bean.StoreResumeInfo" >
+    <id column="ID" property="id" jdbcType="DECIMAL" />
+    <result column="STORE_CODE" property="storeCode" jdbcType="VARCHAR" />
+    <result column="COMPANY_NAME" property="companyName" jdbcType="VARCHAR" />
+    <result column="INDUSTRY" property="industry" jdbcType="VARCHAR" />
+    <result column="IS_PARTNER" property="isPartner" jdbcType="VARCHAR" />
+    <result column="INVESTMENT" property="investment" jdbcType="VARCHAR" />
+    <result column="SHOP_SPACE" property="shopSpace" jdbcType="VARCHAR" />
+    <result column="EMPLOYEE_COUNT" property="employeeCount" jdbcType="VARCHAR" />
+    <result column="GMT_OPEN" property="gmtOpen" jdbcType="VARCHAR" />
+    <result column="OPEN_STATUS" property="openStatus" jdbcType="VARCHAR" />
+    <result column="DESIGN_STATUS" property="designStatus" jdbcType="VARCHAR" />
+    <result column="PROXY_COUNT" property="proxyCount" jdbcType="VARCHAR" />
+    <result column="SIGNER" property="signer" jdbcType="VARCHAR" />
+    <result column="SHOP_MANAGER" property="shopManager" jdbcType="VARCHAR" />
+    <result column="SHOP_MANAGER_TITLE" property="shopManagerTitle" jdbcType="VARCHAR" />
+    <result column="SHOP_MANAGER_PHONE" property="shopManagerPhone" jdbcType="VARCHAR" />
+    <result column="SHOP_MANAGER_AREA" property="shopManagerArea" jdbcType="VARCHAR" />
+    <result column="CHANNEL_MANAGER" property="channelManager" jdbcType="VARCHAR" />
+    <result column="BUSINESS_MANAGER" property="businessManager" jdbcType="VARCHAR" />
+    <result column="GENERAL_MANAGER" property="generalManager" jdbcType="VARCHAR" />
+    <result column="GMT_JOIN" property="gmtJoin" jdbcType="VARCHAR" />
+    <result column="GMT_CREATE" property="gmtCreate" jdbcType="TIMESTAMP" />
+    <result column="GMT_MODIFY" property="gmtModify" jdbcType="TIMESTAMP" />
+    <result column="STORE_TYPE" property="storeType" jdbcType="DECIMAL" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    ID, STORE_CODE, COMPANY_NAME, INDUSTRY, IS_PARTNER, INVESTMENT, SHOP_SPACE, EMPLOYEE_COUNT, 
+    GMT_OPEN, OPEN_STATUS, DESIGN_STATUS, PROXY_COUNT, SIGNER, SHOP_MANAGER, SHOP_MANAGER_TITLE, 
+    SHOP_MANAGER_PHONE, SHOP_MANAGER_AREA, CHANNEL_MANAGER, BUSINESS_MANAGER, GENERAL_MANAGER, 
+    GMT_JOIN, GMT_CREATE, GMT_MODIFY, STORE_TYPE
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.xinruke.support.mybatis.bean.StoreResumeInfoExample" >
+    <include refid="OracleDialectPrefix" />
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    'true' as QUERYID,
+    <include refid="Base_Column_List" />
+    from STORE_RESUME_INFO
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <include refid="OracleDialectSuffix" />
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from STORE_RESUME_INFO
+    where ID = #{id,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from STORE_RESUME_INFO
+    where ID = #{id,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insertSelective" parameterType="com.xinruke.support.mybatis.bean.StoreResumeInfo" >
+    <selectKey resultType="java.lang.Long" keyProperty="id"  order="BEFORE" >
+      SELECT SEQ_STORE_RESUME_INFO.NEXTVAL FROM DUAL
+    </selectKey>
+    insert into STORE_RESUME_INFO
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        ID,
+      </if>
+      <if test="storeCode != null" >
+        STORE_CODE,
+      </if>
+      <if test="companyName != null" >
+        COMPANY_NAME,
+      </if>
+      <if test="industry != null" >
+        INDUSTRY,
+      </if>
+      <if test="isPartner != null" >
+        IS_PARTNER,
+      </if>
+      <if test="investment != null" >
+        INVESTMENT,
+      </if>
+      <if test="shopSpace != null" >
+        SHOP_SPACE,
+      </if>
+      <if test="employeeCount != null" >
+        EMPLOYEE_COUNT,
+      </if>
+      <if test="gmtOpen != null" >
+        GMT_OPEN,
+      </if>
+      <if test="openStatus != null" >
+        OPEN_STATUS,
+      </if>
+      <if test="designStatus != null" >
+        DESIGN_STATUS,
+      </if>
+      <if test="proxyCount != null" >
+        PROXY_COUNT,
+      </if>
+      <if test="signer != null" >
+        SIGNER,
+      </if>
+      <if test="shopManager != null" >
+        SHOP_MANAGER,
+      </if>
+      <if test="shopManagerTitle != null" >
+        SHOP_MANAGER_TITLE,
+      </if>
+      <if test="shopManagerPhone != null" >
+        SHOP_MANAGER_PHONE,
+      </if>
+      <if test="shopManagerArea != null" >
+        SHOP_MANAGER_AREA,
+      </if>
+      <if test="channelManager != null" >
+        CHANNEL_MANAGER,
+      </if>
+      <if test="businessManager != null" >
+        BUSINESS_MANAGER,
+      </if>
+      <if test="generalManager != null" >
+        GENERAL_MANAGER,
+      </if>
+      <if test="gmtJoin != null" >
+        GMT_JOIN,
+      </if>
+      <if test="gmtCreate != null" >
+        GMT_CREATE,
+      </if>
+      <if test="gmtModify != null" >
+        GMT_MODIFY,
+      </if>
+      <if test="storeType != null" >
+        STORE_TYPE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=DECIMAL},
+      </if>
+      <if test="storeCode != null" >
+        #{storeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="companyName != null" >
+        #{companyName,jdbcType=VARCHAR},
+      </if>
+      <if test="industry != null" >
+        #{industry,jdbcType=VARCHAR},
+      </if>
+      <if test="isPartner != null" >
+        #{isPartner,jdbcType=VARCHAR},
+      </if>
+      <if test="investment != null" >
+        #{investment,jdbcType=VARCHAR},
+      </if>
+      <if test="shopSpace != null" >
+        #{shopSpace,jdbcType=VARCHAR},
+      </if>
+      <if test="employeeCount != null" >
+        #{employeeCount,jdbcType=VARCHAR},
+      </if>
+      <if test="gmtOpen != null" >
+        #{gmtOpen,jdbcType=VARCHAR},
+      </if>
+      <if test="openStatus != null" >
+        #{openStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="designStatus != null" >
+        #{designStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="proxyCount != null" >
+        #{proxyCount,jdbcType=VARCHAR},
+      </if>
+      <if test="signer != null" >
+        #{signer,jdbcType=VARCHAR},
+      </if>
+      <if test="shopManager != null" >
+        #{shopManager,jdbcType=VARCHAR},
+      </if>
+      <if test="shopManagerTitle != null" >
+        #{shopManagerTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="shopManagerPhone != null" >
+        #{shopManagerPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="shopManagerArea != null" >
+        #{shopManagerArea,jdbcType=VARCHAR},
+      </if>
+      <if test="channelManager != null" >
+        #{channelManager,jdbcType=VARCHAR},
+      </if>
+      <if test="businessManager != null" >
+        #{businessManager,jdbcType=VARCHAR},
+      </if>
+      <if test="generalManager != null" >
+        #{generalManager,jdbcType=VARCHAR},
+      </if>
+      <if test="gmtJoin != null" >
+        #{gmtJoin,jdbcType=VARCHAR},
+      </if>
+      <if test="gmtCreate != null" >
+        #{gmtCreate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gmtModify != null" >
+        #{gmtModify,jdbcType=TIMESTAMP},
+      </if>
+      <if test="storeType != null" >
+        #{storeType,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.xinruke.support.mybatis.bean.StoreResumeInfoExample" resultType="java.lang.Integer" >
+    select count(*) from STORE_RESUME_INFO
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByPrimaryKeySelective" parameterType="com.xinruke.support.mybatis.bean.StoreResumeInfo" >
+    update STORE_RESUME_INFO
+    <set >
+      <if test="storeCode != null" >
+        STORE_CODE = #{storeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="companyName != null" >
+        COMPANY_NAME = #{companyName,jdbcType=VARCHAR},
+      </if>
+      <if test="industry != null" >
+        INDUSTRY = #{industry,jdbcType=VARCHAR},
+      </if>
+      <if test="isPartner != null" >
+        IS_PARTNER = #{isPartner,jdbcType=VARCHAR},
+      </if>
+      <if test="investment != null" >
+        INVESTMENT = #{investment,jdbcType=VARCHAR},
+      </if>
+      <if test="shopSpace != null" >
+        SHOP_SPACE = #{shopSpace,jdbcType=VARCHAR},
+      </if>
+      <if test="employeeCount != null" >
+        EMPLOYEE_COUNT = #{employeeCount,jdbcType=VARCHAR},
+      </if>
+      <if test="gmtOpen != null" >
+        GMT_OPEN = #{gmtOpen,jdbcType=VARCHAR},
+      </if>
+      <if test="openStatus != null" >
+        OPEN_STATUS = #{openStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="designStatus != null" >
+        DESIGN_STATUS = #{designStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="proxyCount != null" >
+        PROXY_COUNT = #{proxyCount,jdbcType=VARCHAR},
+      </if>
+      <if test="signer != null" >
+        SIGNER = #{signer,jdbcType=VARCHAR},
+      </if>
+      <if test="shopManager != null" >
+        SHOP_MANAGER = #{shopManager,jdbcType=VARCHAR},
+      </if>
+      <if test="shopManagerTitle != null" >
+        SHOP_MANAGER_TITLE = #{shopManagerTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="shopManagerPhone != null" >
+        SHOP_MANAGER_PHONE = #{shopManagerPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="shopManagerArea != null" >
+        SHOP_MANAGER_AREA = #{shopManagerArea,jdbcType=VARCHAR},
+      </if>
+      <if test="channelManager != null" >
+        CHANNEL_MANAGER = #{channelManager,jdbcType=VARCHAR},
+      </if>
+      <if test="businessManager != null" >
+        BUSINESS_MANAGER = #{businessManager,jdbcType=VARCHAR},
+      </if>
+      <if test="generalManager != null" >
+        GENERAL_MANAGER = #{generalManager,jdbcType=VARCHAR},
+      </if>
+      <if test="gmtJoin != null" >
+        GMT_JOIN = #{gmtJoin,jdbcType=VARCHAR},
+      </if>
+      <if test="gmtCreate != null" >
+        GMT_CREATE = #{gmtCreate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gmtModify != null" >
+        GMT_MODIFY = #{gmtModify,jdbcType=TIMESTAMP},
+      </if>
+      <if test="storeType != null" >
+        STORE_TYPE = #{storeType,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=DECIMAL}
+  </update>
+  <sql id="OracleDialectPrefix" >
+    <if test="page != null" >
+      select * from ( select row_.*, rownum rownum_ from ( 
+    </if>
+  </sql>
+  <sql id="OracleDialectSuffix" >
+    <if test="page != null" >
+      <![CDATA[ ) row_ ) where rownum_ > #{page.begin} and rownum_ <= #{page.end} ]]>
+    </if>
+  </sql>
+</mapper>

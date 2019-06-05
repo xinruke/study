@@ -1,5 +1,6 @@
 package com.xinruke.support;
 
+import com.xinruke.support.mybatis.CodeGenerator;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -8,6 +9,9 @@ public class SupportApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(SupportApplication.class, args);
+
+        CodeGenerator codeGenerator = new CodeGenerator();
+        codeGenerator.generate();
     }
 
 }
