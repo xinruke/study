@@ -1,20 +1,19 @@
-package com.xinruke.user.service.impl;
+package com.xinruke.financeinterface.api;
 
-import com.xinruke.user.service.UserFinanceFeignService;
 import feign.hystrix.FallbackFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 @Component
-public class UserFinanceFeignServiceImpl implements FallbackFactory<UserFinanceFeignService> {
+public class UserFinanceFallback implements FallbackFactory<UserFinanceApi> {
     Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @Override
-    public UserFinanceFeignService create(Throwable throwable) {
+    public UserFinanceApi create(Throwable throwable) {
         logger.error("系统异常", throwable);
 
-        return new UserFinanceFeignService() {
+        return new UserFinanceApi() {
             @Override
             public String getBalance(String userId) {
                 logger.error("调用远程服务finance-service失败，熔断getBalance方法");
