@@ -8,12 +8,14 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.cloud.netflix.hystrix.EnableHystrix;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.scheduling.annotation.EnableScheduling;
+import tk.mybatis.spring.annotation.MapperScan;
 
 @SpringBootApplication(scanBasePackages = "com.xinruke")
 @EnableEurekaClient
 @EnableHystrix
-@EnableFeignClients
+@EnableFeignClients(basePackages = "com.xinruke")
 @EnableScheduling
+@MapperScan(basePackages = "com.xinruke.user.mapper")
 public class UserApplication {
     static Logger logger = LoggerFactory.getLogger(UserApplication.class);
 
