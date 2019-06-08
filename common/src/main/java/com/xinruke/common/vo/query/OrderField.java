@@ -18,6 +18,13 @@ public class OrderField {
     private boolean orderDesc;
 
     /**
+     *
+     */
+    public OrderField() {
+        super();
+    }
+
+    /**
      * 构造函数
      *
      * @param orderField

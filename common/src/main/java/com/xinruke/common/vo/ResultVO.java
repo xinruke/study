@@ -26,23 +26,10 @@ public class ResultVO<T> {
 
     /**
      * @param code
-     */
-    public ResultVO(long code) {
-        this.code = code;
-        if (code == this.SUCCESS) {
-            this.message = "SUCCESS";
-        } else {
-            this.message = "FAIL";
-        }
-    }
-
-    /**
-     * @param code
      * @param message
      */
     public ResultVO(long code, String message) {
-        this.code = code;
-        this.message = message;
+        this(code, message, null);
     }
 
     /**
@@ -57,19 +44,17 @@ public class ResultVO<T> {
     }
 
     /**
-     *
      * @return
      */
     public static ResultVO success() {
-        return new ResultVO(SUCCESS);
+        return new ResultVO(SUCCESS, "SUCCESS");
     }
 
     /**
-     *
      * @return
      */
     public static ResultVO fail() {
-        return new ResultVO(FAIL);
+        return new ResultVO(FAIL, "FAIL");
     }
 
     public long getCode() {

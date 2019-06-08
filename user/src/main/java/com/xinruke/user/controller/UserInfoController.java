@@ -2,6 +2,7 @@ package com.xinruke.user.controller;
 
 import com.xinruke.commoditystarter.service.CommodityService;
 import com.xinruke.common.vo.ResultVO;
+import com.xinruke.common.vo.query.EConditionOperator;
 import com.xinruke.common.vo.query.RowsDataVO;
 import com.xinruke.user.dto.UserInfoAddVO;
 import com.xinruke.user.dto.UserInfoQueryDTO;
@@ -31,7 +32,7 @@ public class UserInfoController {
     @GetMapping(value = "testStarter")
     @ApiOperation(value = "测试Starter")
     public ResultVO testStarter() {
-        ResultVO resultVO = new ResultVO(ResultVO.SUCCESS);
+        ResultVO resultVO = ResultVO.success();
 
         String[] configs = commodityService.split(",");
         for (String config : configs) {
@@ -45,7 +46,7 @@ public class UserInfoController {
     @ApiOperation(value = "添加用户信息")
     public ResultVO addUserInfo(@RequestBody @Validated UserInfoAddVO userInfoAddVO, BindingResult bindingResult) {
         logger.info("name[" + userInfoAddVO.getName() + "]password[" + userInfoAddVO.getPassword() + "]");
-        ResultVO resultVO = new ResultVO(ResultVO.FAIL);
+        ResultVO resultVO = ResultVO.fail();
 
         if (bindingResult.hasErrors()) {
             for (ObjectError objectError : bindingResult.getAllErrors()) {
@@ -68,10 +69,12 @@ public class UserInfoController {
 
     @PostMapping(value = "list")
     @ApiOperation(value = "查询用户信息")
-    public ResultVO getUserInfoList(@RequestBody UserInfoQueryDTO userInfoQueryDTO) {
-        ResultVO resultVO = new ResultVO(ResultVO.FAIL);
+    public ResultVO<RowsDataVO<UserInfoQueryResultDTO>> getUserInfoList(@RequestBody UserInfoQueryDTO userInfoQueryDTO) {
+        ResultVO resultVO = ResultVO.fail();
 
         try {
+            userInfoQueryDTO.getQueryConditions().addCondition("name", EConditionOperator.EQULS, userInfoQueryDTO.getName());
+
             RowsDataVO<UserInfoQueryResultDTO> rowsDataVO = userInfoService.getUserInfoList(userInfoQueryDTO);
 
             resultVO.setCode(ResultVO.SUCCESS);

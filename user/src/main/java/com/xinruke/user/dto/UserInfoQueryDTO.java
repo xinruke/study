@@ -4,7 +4,7 @@ import com.xinruke.common.vo.query.BaseQueryVO;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
-@ApiModel("用户信息查询")
+@ApiModel("用户信息查询请求")
 public class UserInfoQueryDTO extends BaseQueryVO {
     @ApiModelProperty("用户名")
     private String name;

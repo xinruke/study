@@ -1,12 +1,11 @@
 package com.xinruke.user.dto;
 
-import com.xinruke.common.vo.query.RowsDataVO;
 import com.xinruke.user.po.UserInfoPO;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
-@ApiModel("用户信息查询")
-public class UserInfoQueryResultDTO extends RowsDataVO {
+@ApiModel("用户信息查询响应")
+public class UserInfoQueryResultDTO {
     @ApiModelProperty("用户编号")
     private long id;
     @ApiModelProperty("用户名")
@@ -38,7 +37,11 @@ public class UserInfoQueryResultDTO extends RowsDataVO {
         this.password = password;
     }
 
-    public void transfer(UserInfoPO userInfoPO){
+    /**
+     * 实体类转换
+     * @param userInfoPO
+     */
+    public void transfer(UserInfoPO userInfoPO) {
         this.setId(userInfoPO.getId());
         this.setName(userInfoPO.getName());
         this.setPassword(userInfoPO.getPassword());

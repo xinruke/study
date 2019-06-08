@@ -2,6 +2,7 @@ package com.xinruke.user.service.impl;
 
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
+import com.xinruke.common.mybatis.MyExample;
 import com.xinruke.common.vo.query.RowsDataVO;
 import com.xinruke.user.dto.UserInfoAddVO;
 import com.xinruke.user.dto.UserInfoQueryDTO;
@@ -14,8 +15,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.util.StringUtils;
-import tk.mybatis.mapper.entity.Example;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -42,12 +41,7 @@ public class UserInfoServiceImpl implements UserInfoService {
         RowsDataVO<UserInfoQueryResultDTO> rowsDataVO = new RowsDataVO<>();
         List<UserInfoQueryResultDTO> resultList = new ArrayList<>();
 
-        Example example = new Example(UserInfoPO.class);
-        Example.Criteria criteria = example.createCriteria();
-        if (!StringUtils.isEmpty(userInfoQueryDTO.getName())) {
-            criteria.andEqualTo("name", userInfoQueryDTO.getName());
-        }
-        example.orderBy("id").asc();
+        MyExample example = new MyExample(UserInfoPO.class, userInfoQueryDTO.getQueryConditions(), userInfoQueryDTO.getOrderFields());
 
         Page<UserInfoPO> page = PageHelper.startPage(userInfoQueryDTO.getPageNo(), userInfoQueryDTO.getPageSize());
         List<UserInfoPO> list = userInfoMapper.selectByExample(example);
