@@ -7,6 +7,8 @@ import com.xinruke.common.vo.query.RowsDataVO;
 import com.xinruke.user.dto.UserInfoAddVO;
 import com.xinruke.user.dto.UserInfoQueryDTO;
 import com.xinruke.user.dto.UserInfoQueryResultDTO;
+import com.xinruke.user.dto.UserResultDTO;
+import com.xinruke.user.po.UserInfoPO;
 import com.xinruke.user.service.UserInfoService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -85,5 +87,28 @@ public class UserInfoController {
         }
 
         return resultVO;
+    }
+
+
+
+    @PostMapping("/{id}")
+    @ApiOperation(value = "更新用户信息")
+    public void updateUserByPrimaryKeySelective(@PathVariable("id") Long id, @RequestBody UserInfoPO userInfoPO) {
+        userInfoPO.setId(id);
+
+        try {
+           userInfoService.updateUserByPrimaryKeySelective(userInfoPO);
+        } catch (Exception e) {
+            logger.error("系统异常", e);
+        }
+
+    }
+
+    @PostMapping("/pmc/list")
+    @ApiOperation(value = "更新用户信息")
+    public ResultVO<RowsDataVO<UserResultDTO>> getUserList(@RequestBody UserInfoQueryDTO userInfoQueryDTO) {
+        return new ResultVO(userInfoService.selectPmcUserList(userInfoQueryDTO));
+
+
     }
 }

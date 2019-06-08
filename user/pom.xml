@@ -68,6 +68,30 @@
       <version>8.0.16</version>
       <scope>compile</scope>
     </dependency>
+    <dependency>
+      <groupId>com.xinruke</groupId>
+      <artifactId>finance-interface</artifactId>
+      <version>0.0.1-SNAPSHOT</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.xinruke</groupId>
+      <artifactId>commodity-starter</artifactId>
+      <version>0.0.1-SNAPSHOT</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.vaadin.external.google</groupId>
+      <artifactId>android-json</artifactId>
+      <version>0.0.20131108.vaadin1</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.netflix.hystrix</groupId>
+      <artifactId>hystrix-javanica</artifactId>
+      <version>1.5.18</version>
+      <scope>compile</scope>
+    </dependency>
   </dependencies>
 
 

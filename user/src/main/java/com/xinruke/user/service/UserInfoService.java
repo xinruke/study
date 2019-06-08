@@ -4,9 +4,15 @@ import com.xinruke.common.vo.query.RowsDataVO;
 import com.xinruke.user.dto.UserInfoAddVO;
 import com.xinruke.user.dto.UserInfoQueryDTO;
 import com.xinruke.user.dto.UserInfoQueryResultDTO;
+import com.xinruke.user.dto.UserResultDTO;
+import com.xinruke.user.po.UserInfoPO;
 
 public interface UserInfoService {
-    public int addUser(UserInfoAddVO userInfoAddVO);
+     int addUser(UserInfoAddVO userInfoAddVO);
 
-    public RowsDataVO<UserInfoQueryResultDTO> getUserInfoList(UserInfoQueryDTO userInfoQueryDTO);
+     RowsDataVO<UserInfoQueryResultDTO> getUserInfoList(UserInfoQueryDTO userInfoQueryDTO);
+
+    void updateUserByPrimaryKeySelective(UserInfoPO userInfoPO);
+
+    RowsDataVO<UserResultDTO> selectPmcUserList(UserInfoQueryDTO userInfoQueryDTO);
 }

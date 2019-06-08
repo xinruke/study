@@ -7,6 +7,7 @@ import com.xinruke.common.vo.query.RowsDataVO;
 import com.xinruke.user.dto.UserInfoAddVO;
 import com.xinruke.user.dto.UserInfoQueryDTO;
 import com.xinruke.user.dto.UserInfoQueryResultDTO;
+import com.xinruke.user.dto.UserResultDTO;
 import com.xinruke.user.mapper.UserInfoMapper;
 import com.xinruke.user.po.UserInfoPO;
 import com.xinruke.user.service.UserInfoService;
@@ -60,6 +61,34 @@ public class UserInfoServiceImpl implements UserInfoService {
         rowsDataVO.setRows(resultList);
 
         return rowsDataVO;
+    }
+
+    /**
+     * 通过userId更新用户信息
+     * @param userInfoPO
+     */
+    @Override
+    @Transactional
+    public void updateUserByPrimaryKeySelective(UserInfoPO userInfoPO) {
+        //校验信息
+        checkParam(userInfoPO);
+        //更新用户信息
+        userInfoMapper.updateByPrimaryKeySelective(userInfoPO);
+
+    }
+
+    @Override
+    public RowsDataVO<UserResultDTO> selectPmcUserList(UserInfoQueryDTO userInfoQueryDTO) {
+
+    return null;
+    }
+
+    /**
+     * 校验用户信息
+     * @param userInfoPO
+     */
+    private void checkParam(UserInfoPO userInfoPO) {
+
     }
 
 }

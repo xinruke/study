@@ -42,6 +42,11 @@ public class ResultVO<T> {
         this.message = message;
         this.data = data;
     }
+    public ResultVO(T data) {
+        this.code = SUCCESS;
+        this.message = "SUCCESS";
+        this.data = data;
+    }
 
     /**
      * @return
