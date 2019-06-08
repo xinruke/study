@@ -17,11 +17,11 @@ public class ResultVO<T> {
     //失败
     public static final long FAIL = -1;
 
-    @ApiModelProperty("返回码")
+    @ApiModelProperty("返回码，1：成功")
     private long code;
     @ApiModelProperty("返回信息")
     private String message;
-    @ApiModelProperty("返回数据")
+    @ApiModelProperty(value = "返回数据")
     private T data;
 
     /**
@@ -30,9 +30,9 @@ public class ResultVO<T> {
     public ResultVO(long code) {
         this.code = code;
         if (code == this.SUCCESS) {
-            this.message = "成功";
+            this.message = "SUCCESS";
         } else {
-            this.message = "失败";
+            this.message = "FAIL";
         }
     }
 
@@ -56,6 +56,21 @@ public class ResultVO<T> {
         this.data = data;
     }
 
+    /**
+     *
+     * @return
+     */
+    public static ResultVO success() {
+        return new ResultVO(SUCCESS);
+    }
+
+    /**
+     *
+     * @return
+     */
+    public static ResultVO fail() {
+        return new ResultVO(FAIL);
+    }
 
     public long getCode() {
         return code;

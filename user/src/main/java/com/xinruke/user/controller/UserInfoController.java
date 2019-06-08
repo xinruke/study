@@ -15,10 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("user/info")
@@ -31,17 +28,24 @@ public class UserInfoController {
     @Autowired
     UserInfoService userInfoService;
 
+    @GetMapping(value = "testStarter")
+    @ApiOperation(value = "测试Starter")
+    public ResultVO testStarter() {
+        ResultVO resultVO = new ResultVO(ResultVO.SUCCESS);
+
+        String[] configs = commodityService.split(",");
+        for (String config : configs) {
+            logger.info("commodity-starter,config=" + config);
+        }
+
+        return resultVO;
+    }
+
     @PostMapping(value = "add")
-    @ApiOperation(value = "添加用户信息", response = ResultVO.class)
+    @ApiOperation(value = "添加用户信息")
     public ResultVO addUserInfo(@RequestBody @Validated UserInfoAddVO userInfoAddVO, BindingResult bindingResult) {
         logger.info("name[" + userInfoAddVO.getName() + "]password[" + userInfoAddVO.getPassword() + "]");
         ResultVO resultVO = new ResultVO(ResultVO.FAIL);
-
-        /*String[] configs = commodityService.split(",");
-        for (String config : configs) {
-            logger.info("commodity-starter,config=" + config);
-        }*/
-
 
         if (bindingResult.hasErrors()) {
             for (ObjectError objectError : bindingResult.getAllErrors()) {
@@ -63,7 +67,7 @@ public class UserInfoController {
     }
 
     @PostMapping(value = "list")
-    @ApiOperation(value = "查询用户信息", response = UserInfoQueryResultDTO.class)
+    @ApiOperation(value = "查询用户信息")
     public ResultVO getUserInfoList(@RequestBody UserInfoQueryDTO userInfoQueryDTO) {
         ResultVO resultVO = new ResultVO(ResultVO.FAIL);
 

@@ -14,12 +14,22 @@ import java.util.List;
  */
 @ApiModel("数据集")
 public class RowsDataVO<T> {
+    @ApiModelProperty("当前页号")
+    private int pageNo = 1;
     @ApiModelProperty("总页数")
     private long totalPages;
     @ApiModelProperty("总记录数")
     private long totalRecords;
     @ApiModelProperty("行数据")
     private List<T> rows;
+
+    public int getPageNo() {
+        return pageNo;
+    }
+
+    public void setPageNo(int pageNo) {
+        this.pageNo = pageNo;
+    }
 
     public long getTotalPages() {
         return totalPages;

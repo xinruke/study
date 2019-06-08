@@ -60,6 +60,7 @@ public class UserInfoServiceImpl implements UserInfoService {
             }
         }
 
+        rowsDataVO.setPageNo(page.getPageNum());
         rowsDataVO.setTotalRecords(page.getTotal());
         rowsDataVO.setTotalPages(page.getPages());
         rowsDataVO.setRows(resultList);
