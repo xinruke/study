@@ -1,7 +1,7 @@
 package com.xinruke.common.vo.query;
 
 /**
- * @ClassName EConditionOperator.java
+ * @ClassName EConditionOperator
  * @CreateDate 2019/6/8
  * @Author FengXinQiang
  * @Version V1.0.0.0

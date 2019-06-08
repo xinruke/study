@@ -6,7 +6,7 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.List;
 
 /**
- * @ClassName RowsDataVO.java
+ * @ClassName RowsDataVO
  * @CreateDate 2019/6/7
  * @Author FengXinQiang
  * @Version V1.0.0.0

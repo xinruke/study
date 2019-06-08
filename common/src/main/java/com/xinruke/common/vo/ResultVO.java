@@ -4,7 +4,7 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * @ClassName ResultVO.java
+ * @ClassName ResultVO
  * @CreateDate 2019/6/7
  * @Author FengXinQiang
  * @Version V1.0.0.0

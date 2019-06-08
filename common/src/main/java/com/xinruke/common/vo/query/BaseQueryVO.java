@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @ClassName BaseQueryVO.java
+ * @ClassName BaseQueryVO
  * @CreateDate 2019/6/7
  * @Author FengXinQiang
  * @Version V1.0.0.0

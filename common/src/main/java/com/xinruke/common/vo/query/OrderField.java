@@ -4,7 +4,7 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * @ClassName OrderField.java
+ * @ClassName OrderField
  * @CreateDate 2019/6/7
  * @Author FengXinQiang
  * @Version V1.0.0.0

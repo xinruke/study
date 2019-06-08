@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @ClassName QueryConditions.java
+ * @ClassName QueryConditions
  * @CreateDate 2019/6/8
  * @Author FengXinQiang
  * @Version V1.0.0.0
