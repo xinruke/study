@@ -4,15 +4,15 @@ import javax.persistence.Table;
 
 @Table(name = "hs_user")
 public class UserInfoPO {
-    private long id;
+    private Long id;
     private String name;
     private String password;
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

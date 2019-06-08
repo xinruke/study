@@ -22,7 +22,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("user/info")
-@Api("用户信息")
+@Api(tags = "用户信息")
 public class UserInfoController {
     Logger logger = LoggerFactory.getLogger(this.getClass());
 

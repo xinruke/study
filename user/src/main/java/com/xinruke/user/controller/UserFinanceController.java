@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("user/finance")
-@Api("用户资金")
+@Api(tags = "用户资金")
 public class UserFinanceController {
     Logger logger = LoggerFactory.getLogger(this.getClass());
 
