@@ -5,12 +5,11 @@
 *.iml
 out
 gen
-target
+
 .settings
 .project
 .classpath
-
-
+target
 /core/bin/
 /service/bin/
 /core/.bpmn/
